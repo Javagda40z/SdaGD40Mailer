@@ -20,7 +20,7 @@ public class Application {
     private void start() {
         MailConfiguration mailConfiguration = new MailConfiguration();
         UserInterface userInterface = new UserInterface(new GmailMailService(mailConfiguration));
-        userInterface.showMenu();
-        userInterface.listen(scanner);
+        userInterface.start(scanner);
+
     }
 }

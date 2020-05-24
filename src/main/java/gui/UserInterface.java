@@ -49,8 +49,20 @@ public class UserInterface {
         String content = scanner.nextLine();
 
         Email email = new Email(mail, subject, content);
-        mailService.sendEmail(email);
+
+        Thread thread = new Thread(() -> mailService.sendEmail(email));
+        thread.start();
 
 
+//        mailService.sendEmail(email);
+
+
+    }
+
+    public void start(Scanner scanner) {
+        while (true) {
+            showMenu();
+            listen(scanner);
+        }
     }
 }
